@@ -1,0 +1,97 @@
+{
+  "app_name": "StadiumPulse",
+  "tagline": "AI-Powered Stadium Intelligence",
+  "wc2026": "FIFA World Cup 2026™",
+
+  "role_select": "Choose Your Experience",
+  "role_fan": "Fan",
+  "role_fan_desc": "Find your seat, skip queues, get home fast",
+  "role_volunteer": "Volunteer",
+  "role_volunteer_desc": "Zone alerts, tasks, incident reports",
+  "role_organizer": "Organizer",
+  "role_organizer_desc": "Command center. Full stadium picture.",
+
+  "nav_home": "Home",
+  "nav_map": "Map",
+  "nav_waits": "Queues",
+  "nav_transit": "Transit",
+  "nav_tasks": "Tasks",
+  "nav_zones": "Zones",
+  "nav_incidents": "Incidents",
+  "nav_dashboard": "Dashboard",
+  "nav_brief": "AI Brief",
+
+  "match_kickoff": "Kick-off",
+  "match_quarter_final": "Quarter-Final",
+  "match_live": "LIVE",
+  "match_vs": "vs",
+
+  "occupancy": "Occupancy",
+  "occupancy_low": "Low",
+  "occupancy_medium": "Moderate",
+  "occupancy_high": "High",
+
+  "wait_time": "Wait Time",
+  "walk_time": "Walk Time",
+  "min": "min",
+
+  "gate": "Gate",
+  "section": "Section",
+  "level_lower": "Lower Bowl",
+  "level_club": "Club Level",
+  "level_upper": "Upper Bowl",
+
+  "accessible_routes": "Accessible Routes",
+  "accessibility_mode": "Accessibility Mode",
+  "step_free": "Step-Free",
+  "elevator": "Elevator Access",
+
+  "find_my_seat": "Find My Seat",
+  "get_directions": "Get Directions",
+  "exit_fast": "Get Me Out Fast",
+
+  "food_courts": "Food Courts",
+  "restrooms": "Restrooms",
+  "nearest_restroom": "Nearest Restroom",
+
+  "transit": "Transit",
+  "shuttle": "Shuttle",
+  "next_departure": "Next Departure",
+  "departing_now": "Departing Now",
+
+  "incident_report": "Report Incident",
+  "incident_submitted": "Incident Submitted",
+  "zone_density": "Zone Density",
+  "my_shift": "My Shift",
+  "my_zone": "My Zone",
+
+  "ai_assistant": "AI Assistant",
+  "ai_placeholder": "Ask anything...",
+  "ai_send": "Send",
+  "ai_thinking": "Thinking...",
+
+  "situation_normal": "Normal Operations",
+  "situation_elevated": "Elevated Alert",
+  "situation_emergency": "EMERGENCY",
+
+  "reduce_motion": "Reduce Motion",
+  "language": "Language",
+  "back": "Back",
+  "close": "Close",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "view_all": "View All",
+  "details": "Details",
+  "resolved": "Resolved",
+  "active": "Active",
+
+  "ai_brief_title": "AI Operations Brief",
+  "volunteer_coverage": "Volunteer Coverage",
+  "incident_feed": "Incident Feed",
+  "total_occupancy": "Total Occupancy",
+  "zones_staffed": "Zones Staffed",
+
+  "suggested_fan": ["Take me to Section 114", "Where's the nearest restroom?", "How do I get home fast?", "What's the food queue like?"],
+  "suggested_volunteer": ["Zone C3 status?", "How do I report a crowd surge?", "Redirect fans from Gate C", "What's the incident protocol?"],
+  "suggested_organizer": ["Give me a situation summary", "Which zones are critical?", "Volunteer coverage status", "Transport disruption impact?"]
+}

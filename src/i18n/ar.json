@@ -1,0 +1,97 @@
+{
+  "app_name": "StadiumPulse",
+  "tagline": "ذكاء اصطناعي لإدارة الملاعب",
+  "wc2026": "كأس العالم FIFA 2026™",
+
+  "role_select": "اختر تجربتك",
+  "role_fan": "مشجع",
+  "role_fan_desc": "ابحث عن مقعدك، تجنب الطوابير، عد إلى المنزل بسرعة",
+  "role_volunteer": "متطوع",
+  "role_volunteer_desc": "تنبيهات المناطق، المهام، تقارير الحوادث",
+  "role_organizer": "منظم",
+  "role_organizer_desc": "مركز القيادة. صورة كاملة للملعب.",
+
+  "nav_home": "الرئيسية",
+  "nav_map": "الخريطة",
+  "nav_waits": "الطوابير",
+  "nav_transit": "المواصلات",
+  "nav_tasks": "المهام",
+  "nav_zones": "المناطق",
+  "nav_incidents": "الحوادث",
+  "nav_dashboard": "لوحة التحكم",
+  "nav_brief": "ملخص الذكاء الاصطناعي",
+
+  "match_kickoff": "انطلاق المباراة",
+  "match_quarter_final": "ربع النهائي",
+  "match_live": "مباشر",
+  "match_vs": "ضد",
+
+  "occupancy": "الإشغال",
+  "occupancy_low": "منخفض",
+  "occupancy_medium": "متوسط",
+  "occupancy_high": "مرتفع",
+
+  "wait_time": "وقت الانتظار",
+  "walk_time": "وقت المشي",
+  "min": "دقيقة",
+
+  "gate": "البوابة",
+  "section": "القسم",
+  "level_lower": "المدرج السفلي",
+  "level_club": "مستوى النادي",
+  "level_upper": "المدرج العلوي",
+
+  "accessible_routes": "المسارات المتاحة",
+  "accessibility_mode": "وضع إمكانية الوصول",
+  "step_free": "بدون درجات",
+  "elevator": "الوصول بالمصعد",
+
+  "find_my_seat": "ابحث عن مقعدي",
+  "get_directions": "الحصول على الاتجاهات",
+  "exit_fast": "الخروج السريع",
+
+  "food_courts": "منطقة الطعام",
+  "restrooms": "دورات المياه",
+  "nearest_restroom": "أقرب دورة مياه",
+
+  "transit": "المواصلات",
+  "shuttle": "الحافلة المكوكية",
+  "next_departure": "المغادرة التالية",
+  "departing_now": "تغادر الآن",
+
+  "incident_report": "الإبلاغ عن حادث",
+  "incident_submitted": "تم إرسال الحادث",
+  "zone_density": "كثافة المنطقة",
+  "my_shift": "وردتي",
+  "my_zone": "منطقتي",
+
+  "ai_assistant": "المساعد الذكي",
+  "ai_placeholder": "اسأل أي شيء...",
+  "ai_send": "إرسال",
+  "ai_thinking": "جارٍ التفكير...",
+
+  "situation_normal": "العمليات الاعتيادية",
+  "situation_elevated": "تنبيه مرتفع",
+  "situation_emergency": "طوارئ",
+
+  "reduce_motion": "تقليل الحركة",
+  "language": "اللغة",
+  "back": "رجوع",
+  "close": "إغلاق",
+  "submit": "إرسال",
+  "cancel": "إلغاء",
+  "view_all": "عرض الكل",
+  "details": "التفاصيل",
+  "resolved": "تم الحل",
+  "active": "نشط",
+
+  "ai_brief_title": "ملخص العمليات بالذكاء الاصطناعي",
+  "volunteer_coverage": "تغطية المتطوعين",
+  "incident_feed": "تغذية الحوادث",
+  "total_occupancy": "الإشغال الإجمالي",
+  "zones_staffed": "المناطق ذات الطاقم",
+
+  "suggested_fan": ["أوصلني إلى القسم 114", "أين أقرب دورة مياه؟", "كيف أخرج بسرعة؟", "ما حال طوابير الطعام؟"],
+  "suggested_volunteer": ["حالة المنطقة C3؟", "كيف أبلغ عن تدافع؟", "إعادة توجيه المشجعين من البوابة C", "ما بروتوكول الحوادث؟"],
+  "suggested_organizer": ["أعطني ملخص الوضع", "ما المناطق الحرجة؟", "حالة تغطية المتطوعين", "تأثير اضطرابات النقل؟"]
+}

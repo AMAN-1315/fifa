@@ -1,0 +1,77 @@
+.food-waits-view {
+  padding: var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.food-waits-title {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.food-waits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.food-waits-card {
+  padding: var(--space-6);
+}
+
+.section-subtitle {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.waits-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.wait-list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.wait-info {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+}
+
+.wait-name {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+}
+
+.wait-gate {
+  color: var(--text-muted);
+}
+
+.wait-slider {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.wait-bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  width: var(--bar-target, 0%);
+  animation: barFill 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@media (max-width: 900px) {
+  .food-waits-grid {
+    grid-template-columns: 1fr;
+  }
+}

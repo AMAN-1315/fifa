@@ -1,0 +1,246 @@
+/* AI Panel — Glass side panel / bottom sheet */
+
+.ai-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--ai-panel-width);
+  z-index: var(--z-panel);
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 18, 36, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-left: 1px solid var(--glass-border);
+  box-shadow: -8px 0 40px rgba(0,0,0,0.5);
+}
+
+/* ---------- Header ---------- */
+.ai-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4);
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.02);
+  flex-shrink: 0;
+}
+
+.ai-panel-header-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.ai-panel-icon {
+  font-size: 1.5rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--panel-color, var(--color-gold));
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--panel-color, var(--color-gold)) 30%, transparent);
+}
+
+.ai-panel-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--panel-color, var(--color-gold));
+  line-height: 1.2;
+}
+
+.ai-panel-subtitle {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.ai-panel-header-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ---------- Language chips ---------- */
+.ai-lang-chips {
+  display: flex;
+  gap: 2px;
+}
+
+.ai-lang-chip {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  line-height: 1;
+}
+.ai-lang-chip:hover { background: var(--glass-bg); border-color: var(--glass-border); }
+.ai-lang-chip--active {
+  background: var(--glass-bg-hover);
+  border-color: var(--panel-color, var(--color-gold));
+  box-shadow: 0 0 8px color-mix(in srgb, var(--panel-color, var(--color-gold)) 20%, transparent);
+}
+
+/* ---------- Messages ---------- */
+.ai-messages {
+  flex: 1;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  overflow-y: auto;
+}
+
+.ai-message {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-end;
+  max-width: 100%;
+}
+
+.ai-message--user {
+  flex-direction: row-reverse;
+}
+
+.ai-message-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--panel-color, var(--color-gold)) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--panel-color, var(--color-gold)) 30%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.ai-message-bubble {
+  max-width: 85%;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  line-height: 1.55;
+}
+
+.ai-message--ai .ai-message-bubble {
+  background: var(--color-surface-2);
+  border: 1px solid var(--glass-border);
+  border-bottom-left-radius: var(--radius-sm);
+  color: var(--text-primary);
+}
+
+.ai-message--user .ai-message-bubble {
+  background: color-mix(in srgb, var(--panel-color, var(--color-gold)) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--panel-color, var(--color-gold)) 30%, transparent);
+  border-bottom-right-radius: var(--radius-sm);
+  color: var(--text-primary);
+}
+
+/* Typing indicator */
+.ai-typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface-2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  border-bottom-left-radius: var(--radius-sm);
+}
+
+/* ---------- Suggestions ---------- */
+.ai-suggestions {
+  padding: 0 var(--space-4) var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+
+.ai-suggestion-chip {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+  line-height: 1.4;
+}
+.ai-suggestion-chip:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--panel-color, var(--color-gold));
+  color: var(--text-primary);
+}
+.ai-suggestion-chip:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---------- Input ---------- */
+.ai-input-area {
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-end;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.02);
+}
+
+.ai-input {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--color-surface);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  resize: none;
+  outline: none;
+  transition: border-color var(--transition-fast);
+  max-height: 120px;
+}
+.ai-input:focus { border-color: var(--panel-color, var(--color-gold)); }
+.ai-input::placeholder { color: var(--text-muted); }
+
+.ai-send-btn {
+  flex-shrink: 0;
+  height: 40px;
+  min-width: 40px;
+}
+.ai-send-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+/* ---------- Mobile (bottom sheet) ---------- */
+@media (max-width: 900px) {
+  .ai-panel {
+    top: auto;
+    right: 0;
+    left: 0;
+    bottom: var(--nav-height-mobile);
+    width: 100%;
+    height: 65dvh;
+    border-left: none;
+    border-top: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    animation: slideInFromBottom 350ms cubic-bezier(0.4,0,0.2,1) both;
+  }
+}
+
+/* Desktop — panel pushes content */
+@media (min-width: 901px) {
+  .ai-panel {
+    animation: slideInFromRight 350ms cubic-bezier(0.4,0,0.2,1) both;
+  }
+}

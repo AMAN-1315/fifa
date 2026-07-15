@@ -1,0 +1,83 @@
+/* AI Orb — Floating ambient trigger button */
+
+.ai-orb {
+  position: fixed;
+  bottom: calc(var(--nav-height-mobile) + var(--space-4));
+  right: var(--space-5);
+  z-index: var(--z-orb);
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--color-navy);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  transition:
+    transform var(--transition-spring),
+    box-shadow var(--transition-base);
+}
+
+.ai-orb:hover {
+  transform: scale(1.1);
+}
+
+.ai-orb:active {
+  transform: scale(0.95);
+}
+
+.ai-orb--open {
+  background: var(--color-surface-3);
+}
+
+.ai-orb-inner {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-orb-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.ai-orb-label {
+  font-size: 9px;
+  font-weight: 800;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+/* Glow states */
+.orb-glow--gold .ai-orb-inner {
+  background: radial-gradient(circle at 40% 35%, rgba(245,197,24,0.25), rgba(6,13,31,0.9));
+  border: 1.5px solid rgba(245,197,24,0.4);
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.orb-glow--amber .ai-orb-inner {
+  background: radial-gradient(circle at 40% 35%, rgba(251,191,36,0.25), rgba(6,13,31,0.9));
+  border: 1.5px solid rgba(251,191,36,0.4);
+  animation: pulseGlowAzure 2s ease-in-out infinite;
+}
+
+.orb-glow--red .ai-orb-inner {
+  background: radial-gradient(circle at 40% 35%, rgba(255,107,107,0.3), rgba(6,13,31,0.9));
+  border: 1.5px solid rgba(255,107,107,0.5);
+  animation: pulseGlowRed 1.5s ease-in-out infinite;
+}
+
+/* Desktop — orb sits above bottom-right without mobile nav offset */
+@media (min-width: 901px) {
+  .ai-orb {
+    bottom: var(--space-8);
+    right: var(--space-8);
+  }
+}

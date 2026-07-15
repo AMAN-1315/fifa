@@ -1,0 +1,4 @@
+/* Theme specific definitions (mostly included in index.css global tokens) */
+:root {
+  /* Dynamic themes can extend this stylesheet */
+}

@@ -1,0 +1,271 @@
+/* Fan Home Bento Dashboard Layout */
+
+.fan-home {
+  padding: var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.fan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.fan-greeting {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.fan-header-badges {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* --- Bento Grid --- */
+.fan-bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(160px, auto);
+  gap: var(--space-4);
+}
+
+.fan-tile {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5);
+  position: relative;
+  overflow: hidden;
+}
+
+.fan-tile-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+
+.fan-tile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.fan-tile-title {
+  font-size: var(--text-base);
+  font-weight: 700;
+}
+
+/* TILE: Map */
+.fan-tile--map {
+  grid-column: span 2;
+  grid-row: span 2;
+  min-height: 360px;
+}
+
+.fan-map-preview {
+  flex: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  margin-bottom: var(--space-4);
+  background: var(--color-navy);
+}
+
+.fan-map-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* TILE: Countdown */
+.fan-tile--countdown {
+  grid-column: span 1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.fan-match-teams {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.fan-team-flag {
+  font-size: var(--text-3xl);
+  line-height: 1;
+}
+
+.fan-match-vs {
+  font-size: var(--text-xs);
+  font-weight: 800;
+  color: var(--color-gold);
+}
+
+.fan-countdown {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.fan-countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fan-countdown-num {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.fan-countdown-label {
+  font-size: 8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+.fan-countdown-sep {
+  font-size: var(--text-xl);
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+/* TILE: Seat */
+.fan-tile--seat {
+  grid-column: span 1;
+}
+
+.fan-seat-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.fan-seat-main {
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  color: var(--color-gold);
+  letter-spacing: -0.02em;
+}
+
+.fan-seat-sub {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.fan-seat-gate {
+  margin-top: var(--space-1);
+}
+
+/* TILE: Queues */
+.fan-tile--queues {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.fan-queue-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+  justify-content: center;
+}
+
+.fan-queue-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.fan-queue-name {
+  width: 140px;
+  text-align: left;
+  color: var(--text-secondary);
+}
+
+.fan-queue-bar-wrap {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.fan-queue-bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  width: var(--bar-target, 0%);
+  animation: barFill 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* TILE: Transit */
+.fan-tile--transit {
+  grid-column: span 1;
+}
+
+.fan-transit-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.fan-transit-route {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.fan-transit-countdown {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--color-azure);
+}
+
+/* TILE: A11y */
+.fan-tile--a11y-active {
+  border-color: var(--color-azure);
+  box-shadow: 0 0 15px rgba(0, 180, 216, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .fan-bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fan-tile--map {
+    grid-column: span 2;
+  }
+  .fan-tile--queues {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .fan-bento {
+    grid-template-columns: 1fr;
+  }
+  .fan-tile--map, .fan-tile--queues, .fan-tile--countdown, .fan-tile--seat, .fan-tile--transit, .fan-tile--exit, .fan-tile--a11y {
+    grid-column: span 1;
+  }
+  .fan-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

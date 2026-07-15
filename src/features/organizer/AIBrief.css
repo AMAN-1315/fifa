@@ -1,0 +1,40 @@
+.ai-brief-view {
+  padding: var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.brief-title {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.brief-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.brief-card {
+  padding: var(--space-6);
+}
+
+.brief-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.brief-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.brief-block-title {
+  font-size: var(--text-base);
+  font-weight: 700;
+}

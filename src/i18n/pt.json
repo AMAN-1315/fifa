@@ -1,0 +1,97 @@
+{
+  "app_name": "StadiumPulse",
+  "tagline": "Inteligência de Estádio com IA",
+  "wc2026": "Copa do Mundo FIFA 2026™",
+
+  "role_select": "Escolha Sua Experiência",
+  "role_fan": "Torcedor",
+  "role_fan_desc": "Encontre seu assento, evite filas, chegue em casa rápido",
+  "role_volunteer": "Voluntário",
+  "role_volunteer_desc": "Alertas de zona, tarefas, relatórios de incidentes",
+  "role_organizer": "Organizador",
+  "role_organizer_desc": "Centro de comando. Visão completa do estádio.",
+
+  "nav_home": "Início",
+  "nav_map": "Mapa",
+  "nav_waits": "Filas",
+  "nav_transit": "Transporte",
+  "nav_tasks": "Tarefas",
+  "nav_zones": "Zonas",
+  "nav_incidents": "Incidentes",
+  "nav_dashboard": "Painel",
+  "nav_brief": "Resumo IA",
+
+  "match_kickoff": "Início do Jogo",
+  "match_quarter_final": "Quartas de Final",
+  "match_live": "AO VIVO",
+  "match_vs": "vs",
+
+  "occupancy": "Ocupação",
+  "occupancy_low": "Baixa",
+  "occupancy_medium": "Moderada",
+  "occupancy_high": "Alta",
+
+  "wait_time": "Tempo de Espera",
+  "walk_time": "Tempo a Pé",
+  "min": "min",
+
+  "gate": "Portão",
+  "section": "Seção",
+  "level_lower": "Arquibancada Inferior",
+  "level_club": "Nível Clube",
+  "level_upper": "Arquibancada Superior",
+
+  "accessible_routes": "Rotas Acessíveis",
+  "accessibility_mode": "Modo Acessibilidade",
+  "step_free": "Sem Degraus",
+  "elevator": "Acesso por Elevador",
+
+  "find_my_seat": "Encontrar Meu Assento",
+  "get_directions": "Obter Direções",
+  "exit_fast": "Sair Rapidamente",
+
+  "food_courts": "Praça de Alimentação",
+  "restrooms": "Banheiros",
+  "nearest_restroom": "Banheiro mais Próximo",
+
+  "transit": "Transporte",
+  "shuttle": "Ônibus Fretado",
+  "next_departure": "Próxima Partida",
+  "departing_now": "Partindo Agora",
+
+  "incident_report": "Reportar Incidente",
+  "incident_submitted": "Incidente Enviado",
+  "zone_density": "Densidade da Zona",
+  "my_shift": "Meu Turno",
+  "my_zone": "Minha Zona",
+
+  "ai_assistant": "Assistente IA",
+  "ai_placeholder": "Pergunte qualquer coisa...",
+  "ai_send": "Enviar",
+  "ai_thinking": "Pensando...",
+
+  "situation_normal": "Operações Normais",
+  "situation_elevated": "Alerta Elevado",
+  "situation_emergency": "EMERGÊNCIA",
+
+  "reduce_motion": "Reduzir Animações",
+  "language": "Idioma",
+  "back": "Voltar",
+  "close": "Fechar",
+  "submit": "Enviar",
+  "cancel": "Cancelar",
+  "view_all": "Ver Tudo",
+  "details": "Detalhes",
+  "resolved": "Resolvido",
+  "active": "Ativo",
+
+  "ai_brief_title": "Resumo Operacional IA",
+  "volunteer_coverage": "Cobertura de Voluntários",
+  "incident_feed": "Feed de Incidentes",
+  "total_occupancy": "Ocupação Total",
+  "zones_staffed": "Zonas com Equipe",
+
+  "suggested_fan": ["Levar à Seção 114", "Onde fica o banheiro?", "Como sair rápido?", "Fila para alimentação?"],
+  "suggested_volunteer": ["Status Zona C3?", "Reportar aglomeração?", "Redirecionar fans do Portão C", "Protocolo de incidente?"],
+  "suggested_organizer": ["Resumo da situação", "Zonas críticas?", "Status cobertura voluntários", "Impacto em transportes?"]
+}

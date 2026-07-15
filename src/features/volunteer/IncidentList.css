@@ -1,0 +1,91 @@
+.incident-list-view {
+  padding: var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.incident-title {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.incident-content {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.incident-feed-card {
+  padding: var(--space-6);
+}
+
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.incidents-scroller {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-height: 500px;
+}
+
+.incident-card-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-surface-2);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  border-left-width: 4px;
+}
+
+.incident-card-item.severity--high { border-left-color: var(--status-red); }
+.incident-card-item.severity--medium { border-left-color: var(--status-amber); }
+.incident-card-item.severity--low { border-left-color: var(--status-green); }
+
+.incident-card-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.incident-icon {
+  font-size: 1.5rem;
+}
+
+.incident-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.incident-loc {
+  margin-top: 2px;
+}
+
+.badge-sev--high { background: var(--status-red-bg); color: var(--status-red); }
+.badge-sev--medium { background: var(--status-amber-bg); color: var(--status-amber); }
+.badge-sev--low { background: var(--status-green-bg); color: var(--status-green); }
+
+.incident-suggestion {
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+}
+
+.ai-badge {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 4px;
+}
