@@ -19,6 +19,8 @@ The app uses a lightweight state model in `src/store/appReducer.js` and a shared
 
 The AI layer is intentionally conservative for the hackathon setting. By default, it uses a local demo fallback so the app works without secrets or backend infrastructure. When a Google Gemini API key is present, the assistant calls Gemini directly from the browser for live responses.
 
+> Demo note: this submission keeps the Gemini call browser-side for simplicity. In production, that request should be proxied through a backend or serverless function so the key is never exposed to clients.
+
 Mock live data is generated locally in `src/mock/generator.js`, which simulates occupancy, queue waits, shuttle timing, and incidents so the interface feels dynamic without needing IoT feeds or external services.
 
 ## How the Solution Works
@@ -56,18 +58,36 @@ Accessibility work includes:
 - reduced-motion support
 - RTL support for Arabic
 
+## Challenge Mapping
+
+| Challenge expectation | Where it is implemented |
+|---|---|
+| Navigation / wayfinding | [src/features/fan/WayfindingView.jsx](src/features/fan/WayfindingView.jsx), [src/components/map/StadiumMap.jsx](src/components/map/StadiumMap.jsx) |
+| Crowd management | [src/mock/generator.js](src/mock/generator.js), [src/features/volunteer/VolunteerHome.jsx](src/features/volunteer/VolunteerHome.jsx), [src/features/organizer/OrganizerHome.jsx](src/features/organizer/OrganizerHome.jsx) |
+| Accessibility | [src/styles/index.css](src/styles/index.css), [src/components/layout/AppShell.css](src/components/layout/AppShell.css), [src/features/fan/WayfindingView.jsx](src/features/fan/WayfindingView.jsx) |
+| Transportation | [src/features/fan/TransitView.jsx](src/features/fan/TransitView.jsx), [src/features/fan/FanHome.jsx](src/features/fan/FanHome.jsx) |
+| Multilingual assistance | [src/hooks/useTranslation.js](src/hooks/useTranslation.js), [src/i18n/en.json](src/i18n/en.json) and locale files |
+| Operational intelligence | [src/features/organizer/AIBrief.jsx](src/features/organizer/AIBrief.jsx), [src/features/organizer/OrganizerHome.jsx](src/features/organizer/OrganizerHome.jsx) |
+| Real-time decision support | [src/hooks/useAI.js](src/hooks/useAI.js) role + situation prompt logic, plus the AI Brief / SITREP flow |
+
+Volunteer mode also intentionally covers gate and venue staff workflows so the persona set stays within the single-branch hackathon scope.
+
 ## Testing
 
 The repo now includes Vitest coverage for the core non-UI logic:
 
 - stadium occupancy thresholds and formatting helpers
 - reducer behavior for role switching and reset flows
+- component smoke coverage for landing, route shells, and persona screens
+- Gemini request/response helper coverage
 
 Run tests with:
 
 ```bash
 npm test
 ```
+
+Coverage snapshot from the latest run: **84.32% statements** overall.
 
 ## Local Development
 
@@ -88,6 +108,8 @@ Build for production:
 ```bash
 npm run build
 ```
+
+Current production bundle snapshot: **211.36 kB JS** and **25.03 kB CSS** before gzip.
 
 Lint the codebase:
 

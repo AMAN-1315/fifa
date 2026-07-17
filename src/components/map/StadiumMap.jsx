@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ZONES, FOOD_COURTS } from '../../mock/stadiumData';
 import { getOccupancyColor } from '../../mock/generator';
+import { stadiumMapPropTypes } from './StadiumMap.propTypes';
 import './StadiumMap.css';
 
 /**
@@ -230,3 +231,5 @@ export default function StadiumMap({
     </div>
   );
 }
+
+StadiumMap.propTypes = stadiumMapPropTypes;

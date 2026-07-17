@@ -11,6 +11,7 @@ import { buildGeminiRequest, extractGeminiText } from '../lib/geminiClient';
 
 const MODEL = import.meta.env.VITE_GOOGLE_MODEL || 'gemini-2.0-flash';
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
+export const AI_API_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models';
 
 // ---------- System Prompt Builder ----------
 function buildSystemPrompt(role, situation, zone, language, langName) {
@@ -119,7 +120,7 @@ export function useAI() {
         temperature: 0.6,
       });
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`, {
+      const response = await fetch(`${AI_API_ENDPOINT}/${MODEL}:generateContent?key=${API_KEY}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -147,7 +148,7 @@ export function useAI() {
 }
 
 // ---------- Demo Fallback Responses (no API key needed for judges to see the UX) ----------
-function getDemoResponse(role, userMessage) {
+export function getDemoResponse(role, userMessage) {
   const lower = userMessage.toLowerCase();
   const snap = getSnapshot();
 

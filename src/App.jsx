@@ -1,22 +1,19 @@
+import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './store/AppContext';
+import ErrorBoundary from './components/ErrorBoundary';
 import AppShell from './components/layout/AppShell';
-import LandingPage from './features/landing/LandingPage';
 
-// Fan Components
-import FanHome from './features/fan/FanHome';
-import WayfindingView from './features/fan/WayfindingView';
-import FoodWaitsView from './features/fan/FoodWaitsView';
-import TransitView from './features/fan/TransitView';
-
-// Volunteer Components
-import VolunteerHome from './features/volunteer/VolunteerHome';
-import ZoneList from './features/volunteer/ZoneList';
-import IncidentList from './features/volunteer/IncidentList';
-
-// Organizer Components
-import OrganizerHome from './features/organizer/OrganizerHome';
-import AIBrief from './features/organizer/AIBrief';
+const LandingPage = lazy(() => import('./features/landing/LandingPage'));
+const FanHome = lazy(() => import('./features/fan/FanHome'));
+const WayfindingView = lazy(() => import('./features/fan/WayfindingView'));
+const FoodWaitsView = lazy(() => import('./features/fan/FoodWaitsView'));
+const TransitView = lazy(() => import('./features/fan/TransitView'));
+const VolunteerHome = lazy(() => import('./features/volunteer/VolunteerHome'));
+const ZoneList = lazy(() => import('./features/volunteer/ZoneList'));
+const IncidentList = lazy(() => import('./features/volunteer/IncidentList'));
+const OrganizerHome = lazy(() => import('./features/organizer/OrganizerHome'));
+const AIBrief = lazy(() => import('./features/organizer/AIBrief'));
 
 import './styles/theme.css';
 import './styles/index.css';
@@ -25,36 +22,35 @@ import './styles/animations.css';
 export default function App() {
   return (
     <AppProvider>
-      <BrowserRouter>
-        <Routes>
-          {/* Landing / Role Selector */}
-          <Route path="/" element={<LandingPage />} />
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <ErrorBoundary>
+          <Suspense fallback={<div style={{ padding: '2rem', color: 'white' }}>Loading StadiumPulse...</div>}>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
 
-          {/* Fan Route Group */}
-          <Route path="/fan" element={<AppShell />}>
-            <Route index element={<FanHome />} />
-            <Route path="map" element={<WayfindingView />} />
-            <Route path="queues" element={<FoodWaitsView />} />
-            <Route path="transit" element={<TransitView />} />
-          </Route>
+              <Route path="/fan" element={<AppShell />}>
+                <Route index element={<FanHome />} />
+                <Route path="map" element={<WayfindingView />} />
+                <Route path="queues" element={<FoodWaitsView />} />
+                <Route path="transit" element={<TransitView />} />
+              </Route>
 
-          {/* Volunteer Route Group */}
-          <Route path="/volunteer" element={<AppShell />}>
-            <Route index element={<VolunteerHome />} />
-            <Route path="zones" element={<ZoneList />} />
-            <Route path="incidents" element={<IncidentList />} />
-          </Route>
+              <Route path="/volunteer" element={<AppShell />}>
+                <Route index element={<VolunteerHome />} />
+                <Route path="zones" element={<ZoneList />} />
+                <Route path="incidents" element={<IncidentList />} />
+              </Route>
 
-          {/* Organizer Route Group */}
-          <Route path="/organizer" element={<AppShell />}>
-            <Route index element={<OrganizerHome />} />
-            <Route path="incidents" element={<IncidentList />} />
-            <Route path="brief" element={<AIBrief />} />
-          </Route>
+              <Route path="/organizer" element={<AppShell />}>
+                <Route index element={<OrganizerHome />} />
+                <Route path="incidents" element={<IncidentList />} />
+                <Route path="brief" element={<AIBrief />} />
+              </Route>
 
-          {/* Fallback */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </BrowserRouter>
     </AppProvider>
   );
