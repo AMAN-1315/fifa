@@ -1,54 +1,118 @@
 # StadiumPulse — AI-Powered Smart Stadium & Tournament Operations Assistant
-### FIFA World Cup 2026 Edition
 
-StadiumPulse is a GenAI-enabled web application built for the **FIFA World Cup 2026**. It unifies stadium wayfinding, dynamic queue wait-time estimation, tournament transport schedules, accessibility routes, and multi-persona operational command systems into a single contextual intelligence dashboard.
+StadiumPulse is a React + Vite web app built for **Challenge 4: Smart Stadiums & Tournament Operations**. It simulates a FIFA World Cup 2026 operations layer for fans, volunteers, and organizers with role-aware UI, a contextual assistant, live mock stadium data, multilingual support, and an accessible dark-first interface.
 
----
+## Chosen Vertical
 
-## 🚀 Key Features & AI Core
+**Smart Stadiums & Tournament Operations**
 
-### 1. Multi-Persona Architecture
-The system supports three distinct operational roles, changing the UI layout, dashboards, and AI capabilities based on context:
-*   🎟️ **Fan Experience**: Access turn-by-turn section wayfinding, live restroom and food court queue meters, transit schedules, and an interactive stadium map with step-free accessibility mode.
-*   🦺 **Volunteer Portal**: Monitor zone bottlenecks, log incidents with one-tap triage severity, track checklists, and receive automated crowd-flow alerts.
-*   📊 **Organizer Command Center**: Unified command screen containing a live heat-map, incident dispatcher list, volunteer coverage ratios, weather stats, and AI operations reports.
+This vertical fits the app’s core strength: contextual decision-making. The same codebase adapts to three personas and changes the UI, language, and assistant behavior based on role, situation, and location.
 
-### 2. Context-Aware AI Branching Logic
-The persistent ambient AI assistant (triggered via the floating orb) adapts its system prompts dynamically on:
-1.  **User Role** (Fan, Volunteer, or Organizer).
-2.  **Situation Severity** (Normal operations, Elevated alert, or Emergency override).
-3.  **Language & Locale** (Supports English, Spanish, French, Portuguese, and Arabic with full RTL layouts).
-4.  **Assigned Sector Location**.
+## Approach and Logic
 
----
+The app uses a lightweight state model in `src/store/appReducer.js` and a shared context provider to drive:
 
-## 🛠️ Stack & Setup
+- role switching between Fan, Volunteer, and Organizer experiences
+- accessibility mode and reduced-motion preferences
+- stadium situation state: normal, elevated, or emergency
+- selected zone and route context for wayfinding
 
-*   **Frontend**: React + Vite, CSS (design tokens & custom glassmorphic styling), HTML5.
-*   **Routing & State**: React Router v6, custom lightweight Context API.
-*   **AI Engine**: Anthropic Claude API (`claude-haiku-4-5`).
+The AI layer is intentionally conservative for the hackathon setting. By default, it uses a local demo fallback so the app works without secrets or backend infrastructure. A direct API path can be enabled explicitly, but it is disabled by default for safer demos.
 
-### Running Locally
+Mock live data is generated locally in `src/mock/generator.js`, which simulates occupancy, queue waits, shuttle timing, and incidents so the interface feels dynamic without needing IoT feeds or external services.
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
+## How the Solution Works
 
-2. Copy the environment template:
-   ```bash
-   cp .env.example .env.local
-   ```
+### Fan flow
 
-3. Open `.env.local` and add your Claude API Key:
-   ```env
-   VITE_CLAUDE_API_KEY=your_actual_anthropic_api_key
-   ```
-   *(Note: If no API key is specified, the application automatically triggers simulated local AI logic so judges can experience the full interactive workflow out-of-the-box).*
+- select fan mode from the landing page
+- view a bento-style dashboard with live map, queue times, transit, and exit planning
+- tap the stadium map to get route guidance
+- open the ambient AI orb for contextual help
 
-4. Run the local dev server:
-   ```bash
-   npm run dev
-   ```
+### Volunteer flow
 
-5. Open your browser at `http://localhost:5173`.
+- switch into volunteer mode
+- review zone density, incident status, and action prompts
+- report incidents and track operational priorities
+- use the same assistant, but with concise operational language
+
+### Organizer flow
+
+- switch into organizer mode
+- monitor occupancy, incidents, volunteer coverage, and situation state
+- drill into zones for a command-center style overview
+- use the AI brief for a quick operational summary
+
+## UI and Accessibility
+
+The interface is designed to avoid the common “single centered card” problem. The shell and screen wrappers are full-width, so the content fills the viewport instead of leaving a large dead area on the right.
+
+Accessibility work includes:
+
+- keyboard-navigable interactive controls
+- semantic regions and labels on dashboard sections
+- high-contrast status colors paired with text/icons
+- reduced-motion support
+- RTL support for Arabic
+
+## Testing
+
+The repo now includes Vitest coverage for the core non-UI logic:
+
+- stadium occupancy thresholds and formatting helpers
+- reducer behavior for role switching and reset flows
+
+Run tests with:
+
+```bash
+npm test
+```
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the app:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Lint the codebase:
+
+```bash
+npm run lint
+```
+
+## Assumptions
+
+- No real stadium sensors or transit APIs are available, so all live data is simulated locally.
+- The app is evaluated as a public GitHub repository, not as a production deployment.
+- A single branch is kept for submission hygiene.
+- The project should stay lightweight and below the repo size limit, so the implementation uses CSS, SVG, and mock generators instead of large binary assets.
+- The demo should work without an AI API key unless direct AI is explicitly enabled.
+
+## Tech Stack
+
+- React
+- Vite
+- React Router
+- CSS modules/files with shared design tokens
+- Vitest for unit testing
+
+## Repository Notes
+
+- The app is intentionally built as a small, single-branch hackathon project.
+- The main behavioral logic lives in `src/store/appReducer.js`, `src/lib/stadiumMetrics.js`, and `src/mock/generator.js`.
+- The visual shell is handled by `src/components/layout/AppShell.jsx` and the feature screen CSS files.

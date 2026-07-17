@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useApp } from '../../store/AppContext';
+import { useState } from 'react';
+import { useApp } from '../../store/useApp';
 import { useTranslation } from '../../hooks/useTranslation';
 import { useMockData } from '../../hooks/useMockData';
-import { ZONES, VOLUNTEER_PROFILES } from '../../mock/stadiumData';
+import { ZONES } from '../../mock/stadiumData';
 import StadiumMap from '../../components/map/StadiumMap';
 import './OrganizerHome.css';
 

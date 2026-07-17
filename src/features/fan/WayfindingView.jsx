@@ -1,6 +1,4 @@
-import React from 'react';
-import { useApp } from '../../store/AppContext';
-import { useTranslation } from '../../hooks/useTranslation';
+import { useApp } from '../../store/useApp';
 import { useMockData } from '../../hooks/useMockData';
 import { ZONES } from '../../mock/stadiumData';
 import StadiumMap from '../../components/map/StadiumMap';
@@ -8,7 +6,6 @@ import './WayfindingView.css';
 
 export default function WayfindingView() {
   const { state, dispatch } = useApp();
-  const { t } = useTranslation();
   const data = useMockData();
   const { selectedSection, accessibilityMode } = state;
 

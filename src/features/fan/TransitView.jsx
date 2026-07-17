@@ -1,12 +1,9 @@
-import React from 'react';
-import { useTranslation } from '../../hooks/useTranslation';
 import { useMockData } from '../../hooks/useMockData';
 import { SHUTTLE_ROUTES } from '../../mock/stadiumData';
 import { formatCountdown } from '../../mock/generator';
 import './TransitView.css';
 
 export default function TransitView() {
-  const { t } = useTranslation();
   const data = useMockData();
 
   return (

@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useApp } from '../store/AppContext';
+import { useApp } from '../store/useApp';
 
 // Preload all locales synchronously at startup (small files, fine for hackathon)
 import enStrings from '../i18n/en.json';

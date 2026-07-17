@@ -156,8 +156,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-width: 0;
+  padding: var(--space-6);
 }
 
 /* ---------- BOTTOM NAV (mobile only) ---------- */

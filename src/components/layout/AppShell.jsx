@@ -1,6 +1,5 @@
-import React from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
-import { useApp } from '../../store/AppContext';
+import { useApp } from '../../store/useApp';
 import { useTranslation } from '../../hooks/useTranslation';
 import AIOrb from '../ai/AIOrb';
 import AIPanel from '../ai/AIPanel';

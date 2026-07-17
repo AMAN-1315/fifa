@@ -1,12 +1,9 @@
-import React from 'react';
-import { useApp } from '../../store/AppContext';
-import { useTranslation } from '../../hooks/useTranslation';
+import { useApp } from '../../store/useApp';
 import { useMockData } from '../../hooks/useMockData';
 import './IncidentList.css';
 
 export default function IncidentList() {
   const { state } = useApp();
-  const { t } = useTranslation();
   const data = useMockData();
   const isOrganizer = state.role === 'organizer';
 

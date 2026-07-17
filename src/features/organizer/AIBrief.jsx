@@ -1,12 +1,7 @@
-import React from 'react';
-import { useTranslation } from '../../hooks/useTranslation';
 import { useMockData } from '../../hooks/useMockData';
-import { useApp } from '../../store/AppContext';
 import './AIBrief.css';
 
 export default function AIBrief() {
-  const { state } = useApp();
-  const { t } = useTranslation();
   const data = useMockData();
 
   return (

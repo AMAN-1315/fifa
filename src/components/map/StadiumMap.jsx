@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { ZONES, FOOD_COURTS, RESTROOMS } from '../../mock/stadiumData';
+import { useState } from 'react';
+import { ZONES, FOOD_COURTS } from '../../mock/stadiumData';
 import { getOccupancyColor } from '../../mock/generator';
-import { useApp } from '../../store/AppContext';
 import './StadiumMap.css';
 
 /**
@@ -19,7 +18,6 @@ export default function StadiumMap({
   showAccessible = false,
   compact = false,
 }) {
-  const { state } = useApp();
   const [hoveredZone, setHoveredZone] = useState(null);
 
   const vb = compact ? '20 20 60 60' : '0 0 100 100';

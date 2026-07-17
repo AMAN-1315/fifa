@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from '../../hooks/useTranslation';
 import { useMockData } from '../../hooks/useMockData';
 import { FOOD_COURTS, RESTROOMS } from '../../mock/stadiumData';

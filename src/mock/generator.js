@@ -6,6 +6,13 @@
  */
 
 import { ZONES, FOOD_COURTS, RESTROOMS, SHUTTLE_ROUTES, VOLUNTEER_PROFILES } from './stadiumData';
+import {
+  getOccupancyLevel,
+  getOccupancyColor,
+  getOccupancyBadgeClass,
+  formatWalkTime,
+  formatCountdown,
+} from '../lib/stadiumMetrics';
 
 // ---------- State ----------
 let _zoneOccupancy = {};   // zoneId -> 0-100
@@ -152,32 +159,13 @@ function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
-export function getOccupancyLevel(pct) {
-  if (pct >= 80) return 'high';
-  if (pct >= 55) return 'medium';
-  return 'low';
-}
-
-export function getOccupancyColor(pct) {
-  if (pct >= 80) return 'var(--status-red)';
-  if (pct >= 55) return 'var(--status-amber)';
-  return 'var(--status-green)';
-}
-
-export function getOccupancyBadgeClass(pct) {
-  if (pct >= 80) return 'badge-red';
-  if (pct >= 55) return 'badge-amber';
-  return 'badge-green';
-}
-
-export function formatWalkTime(minutes) {
-  return `${minutes} min walk`;
-}
-
-export function formatCountdown(minutes) {
-  if (minutes <= 1) return 'Departing now';
-  return `${minutes} min`;
-}
+export {
+  getOccupancyLevel,
+  getOccupancyColor,
+  getOccupancyBadgeClass,
+  formatWalkTime,
+  formatCountdown,
+};
 
 // ---------- Bootstrap ----------
 init();

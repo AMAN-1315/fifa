@@ -1,12 +1,9 @@
-import React from 'react';
-import { useTranslation } from '../../hooks/useTranslation';
 import { useMockData } from '../../hooks/useMockData';
 import { ZONES } from '../../mock/stadiumData';
 import { getOccupancyBadgeClass } from '../../mock/generator';
 import './ZoneList.css';
 
 export default function ZoneList() {
-  const { t } = useTranslation();
   const data = useMockData();
 
   return (

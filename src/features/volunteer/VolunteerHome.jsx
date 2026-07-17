@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useApp } from '../../store/AppContext';
+import { useState } from 'react';
+import { useApp } from '../../store/useApp';
 import { useTranslation } from '../../hooks/useTranslation';
 import { useMockData } from '../../hooks/useMockData';
 import { ZONES, INCIDENT_CATEGORIES } from '../../mock/stadiumData';
-import { getOccupancyColor, getOccupancyBadgeClass } from '../../mock/generator';
+import { getOccupancyColor } from '../../mock/generator';
 import './VolunteerHome.css';
 
 export default function VolunteerHome() {
-  const { state, dispatch } = useApp();
+  const { dispatch } = useApp();
   const { t } = useTranslation();
   const data = useMockData();
 

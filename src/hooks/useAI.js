@@ -10,12 +10,11 @@ import { getSnapshot } from '../mock/generator';
 
 const MODEL = import.meta.env.VITE_CLAUDE_MODEL || 'claude-haiku-4-5';
 const API_KEY = import.meta.env.VITE_CLAUDE_API_KEY;
+const ENABLE_DIRECT_AI = import.meta.env.VITE_ENABLE_DIRECT_AI === 'true';
 
 // ---------- System Prompt Builder ----------
 function buildSystemPrompt(role, situation, zone, language, langName) {
   const snap = getSnapshot();
-  const topBusyZone = Object.entries(snap.zoneOccupancy)
-    .sort(([,a],[,b]) => b - a)[0];
   const avgOccupancy = snap.totalOccupancy;
 
   const STADIUM_CONTEXT = `
@@ -102,9 +101,9 @@ export function useAI() {
   const [error, setError] = useState(null);
 
   const sendMessage = useCallback(async ({ messages, role, situation, zone, language }) => {
-    if (!API_KEY || API_KEY === 'your_claude_api_key_here') {
+    if (!ENABLE_DIRECT_AI || !API_KEY || API_KEY === 'your_claude_api_key_here') {
       // Demo fallback — return a realistic mock response when no API key
-      return getDemoResponse(role, messages[messages.length - 1]?.content || '', language);
+      return getDemoResponse(role, messages[messages.length - 1]?.content || '');
     }
 
     setIsLoading(true);
@@ -149,7 +148,7 @@ export function useAI() {
 }
 
 // ---------- Demo Fallback Responses (no API key needed for judges to see the UX) ----------
-function getDemoResponse(role, userMessage, language) {
+function getDemoResponse(role, userMessage) {
   const lower = userMessage.toLowerCase();
   const snap = getSnapshot();
 

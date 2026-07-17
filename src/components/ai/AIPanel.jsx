@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useApp } from '../../store/AppContext';
+import { useState, useRef, useEffect } from 'react';
+import { useApp } from '../../store/useApp';
 import { useAI } from '../../hooks/useAI';
 import { useTranslation, LANGUAGE_OPTIONS } from '../../hooks/useTranslation';
 import './AIPanel.css';

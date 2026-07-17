@@ -1,6 +1,5 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useApp } from '../../store/AppContext';
+import { useApp } from '../../store/useApp';
 import { useTranslation, LANGUAGE_OPTIONS } from '../../hooks/useTranslation';
 import './LandingPage.css';
 

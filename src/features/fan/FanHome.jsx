@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useApp } from '../../store/AppContext';
+import { useApp } from '../../store/useApp';
 import { useTranslation } from '../../hooks/useTranslation';
 import { useMockData } from '../../hooks/useMockData';
 import { MATCH, FOOD_COURTS, SHUTTLE_ROUTES } from '../../mock/stadiumData';
@@ -34,10 +34,6 @@ export default function FanHome() {
 
   const mySection = state.currentZone || 'Section 114';
   const myGate    = 'Gate G';
-
-  const nearestFood = Object.entries(data.foodWaits)
-    .sort(([,a],[,b]) => a - b)[0];
-  const nearestFoodCourt = FOOD_COURTS.find(f => f.id === nearestFood?.[0]);
 
   const nextShuttle = Object.entries(data.shuttleCountdowns)
     .sort(([,a],[,b]) => a - b)[0];
