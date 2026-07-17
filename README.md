@@ -17,7 +17,7 @@ The app uses a lightweight state model in `src/store/appReducer.js` and a shared
 - stadium situation state: normal, elevated, or emergency
 - selected zone and route context for wayfinding
 
-The AI layer is intentionally conservative for the hackathon setting. By default, it uses a local demo fallback so the app works without secrets or backend infrastructure. A direct API path can be enabled explicitly, but it is disabled by default for safer demos.
+The AI layer is intentionally conservative for the hackathon setting. By default, it uses a local demo fallback so the app works without secrets or backend infrastructure. When a Google Gemini API key is present, the assistant calls Gemini directly from the browser for live responses.
 
 Mock live data is generated locally in `src/mock/generator.js`, which simulates occupancy, queue waits, shuttle timing, and incidents so the interface feels dynamic without needing IoT feeds or external services.
 
@@ -101,7 +101,7 @@ npm run lint
 - The app is evaluated as a public GitHub repository, not as a production deployment.
 - A single branch is kept for submission hygiene.
 - The project should stay lightweight and below the repo size limit, so the implementation uses CSS, SVG, and mock generators instead of large binary assets.
-- The demo should work without an AI API key unless direct AI is explicitly enabled.
+- The demo should work without an AI API key, but a Google Gemini key enables live AI responses.
 
 ## Tech Stack
 

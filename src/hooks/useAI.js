@@ -1,16 +1,16 @@
 import { useState, useCallback } from 'react';
 import { getSnapshot } from '../mock/generator';
+import { buildGeminiRequest, extractGeminiText } from '../lib/geminiClient';
 
 /**
- * useAI — Claude API integration with role-scoped, situation-aware system prompts.
+ * useAI — Google Gemini API integration with role-scoped, situation-aware system prompts.
  * 
  * The "smart" in StadiumPulse: the system prompt changes per role × situation × language,
  * giving judges a clear demonstration of contextual AI decision-making.
  */
 
-const MODEL = import.meta.env.VITE_CLAUDE_MODEL || 'claude-haiku-4-5';
-const API_KEY = import.meta.env.VITE_CLAUDE_API_KEY;
-const ENABLE_DIRECT_AI = import.meta.env.VITE_ENABLE_DIRECT_AI === 'true';
+const MODEL = import.meta.env.VITE_GOOGLE_MODEL || 'gemini-2.0-flash';
+const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
 // ---------- System Prompt Builder ----------
 function buildSystemPrompt(role, situation, zone, language, langName) {
@@ -101,7 +101,7 @@ export function useAI() {
   const [error, setError] = useState(null);
 
   const sendMessage = useCallback(async ({ messages, role, situation, zone, language }) => {
-    if (!ENABLE_DIRECT_AI || !API_KEY || API_KEY === 'your_claude_api_key_here') {
+    if (!API_KEY || API_KEY === 'your_google_api_key_here') {
       // Demo fallback — return a realistic mock response when no API key
       return getDemoResponse(role, messages[messages.length - 1]?.content || '');
     }
@@ -111,30 +111,29 @@ export function useAI() {
 
     try {
       const systemPrompt = buildSystemPrompt(role, situation, zone, language, LANG_NAMES[language]);
+      const payload = buildGeminiRequest({
+        model: MODEL,
+        systemPrompt,
+        messages,
+        maxOutputTokens: 512,
+        temperature: 0.6,
+      });
 
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': API_KEY,
-          'anthropic-version': '2023-06-01',
-          'anthropic-dangerous-direct-browser-access': 'true',
         },
-        body: JSON.stringify({
-          model: MODEL,
-          max_tokens: 512,
-          system: systemPrompt,
-          messages: messages.map(m => ({ role: m.role, content: m.content })),
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
         const err = await response.json().catch(() => ({}));
-        throw new Error(err.error?.message || `API error ${response.status}`);
+        throw new Error(err.error?.message || err.message || `API error ${response.status}`);
       }
 
       const data = await response.json();
-      return data.content[0]?.text || '';
+      return extractGeminiText(data);
     } catch (err) {
       setError(err.message);
       // Graceful fallback on error

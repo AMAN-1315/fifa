@@ -9,6 +9,7 @@ dist-ssr/
 build/
 
 # Environment secrets — NEVER commit real keys
+.env
 .env.local
 .env.*.local
 
